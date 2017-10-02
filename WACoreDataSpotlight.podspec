@@ -13,7 +13,8 @@ Pod::Spec.new do |s|
   s.author             = { "ipodishima" => "marian.paul2@gmail.com" }
   s.social_media_url   = "http://twitter.com/ipodishima"
 
-  s.platform     = :ios, "7.0"
+   s.ios.deployment_target = "7.0"
+  s.osx.deployment_target = "10.13"
   s.source       = { :git => "https://github.com/Wasappli/WACoreDataSpotlight.git", :tag => "#{s.version}" }
   s.source_files  = "Files/*.{h,m}"
 

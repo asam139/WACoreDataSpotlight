@@ -10,7 +10,7 @@
 #import "WACDSStringPattern.h"
 #if TARGET_IOS
 @import MobileCoreServices;
-#else TARGET_OSX
+#elif TARGET_OSX
 @import CoreServices;
 #endif
 

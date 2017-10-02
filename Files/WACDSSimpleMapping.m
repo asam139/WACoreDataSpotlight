@@ -8,7 +8,12 @@
 
 #import "WACDSSimpleMapping.h"
 #import "WACDSStringPattern.h"
+#if TARGET_IOS
 @import MobileCoreServices;
+#else TARGET_OSX
+@import CoreServices;
+#endif
+
 
 #import "WACDSMacros.h"
 

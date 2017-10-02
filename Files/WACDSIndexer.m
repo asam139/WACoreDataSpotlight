@@ -50,6 +50,17 @@
         if (!indexName) {
             self->_searchableIndex = [CSSearchableIndex defaultSearchableIndex];
         } else {
+#if TARGET_IOS
+            NSString *resolvedProtectionClass = protectionClass;
+            if (!resolvedProtectionClass) {
+                resolvedProtectionClass = NSFileProtection;
+            }
+            self->_searchableIndex = [[CSSearchableIndex alloc] initWithName:indexName
+                                                             protectionClass:resolvedProtectionClass];
+#elif TARGET_OSX
+            self->_searchableIndex = [[CSSearchableIndex alloc] initWithName:indexName];
+#endif
+            
             NSString *resolvedProtectionClass = protectionClass;
             if (!resolvedProtectionClass) {
                 resolvedProtectionClass = NSFileProtectionNone;

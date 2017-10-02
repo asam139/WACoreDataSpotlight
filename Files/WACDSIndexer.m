@@ -61,13 +61,6 @@
             self->_searchableIndex = [[CSSearchableIndex alloc] initWithName:indexName];
 #endif
             
-            NSString *resolvedProtectionClass = protectionClass;
-            if (!resolvedProtectionClass) {
-                resolvedProtectionClass = NSFileProtectionNone;
-            }
-            self->_searchableIndex = [[CSSearchableIndex alloc] initWithName:indexName
-                                                             protectionClass:resolvedProtectionClass];
-            
             __weak typeof(self) weakSelf = self;
             [self->_searchableIndex fetchLastClientStateWithCompletionHandler:^(NSData * _Nullable clientState, NSError * _Nullable error) {
                 // TODO: retrieve the objects from the data and finish indexing
